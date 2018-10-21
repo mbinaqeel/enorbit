@@ -1,0 +1,26 @@
+﻿@model List<WebApplication2.Models.Product_Grid>
+@{
+    ViewBag.Title = "Products";
+}
+
+
+
+
+    @foreach(var x in Model)
+    {
+    <div class="content-grid">
+        <a href="@x.pagepath" class="b-link-stripe b-animate-go  thickbox">
+            <img src="@x.imgpath" style="height:200px"/>
+            <div class="b-wrapper">
+                <h2 class="b-animate b-from-left    b-delay03 ">
+                    <span>@x.name</span>
+                    <p>@x.model</p>
+                    <i> </i>
+                </h2>
+            </div>
+            <div style="text-align:center">@x.model    </div>
+        </a>
+        
+    </div>    
+    }
+    

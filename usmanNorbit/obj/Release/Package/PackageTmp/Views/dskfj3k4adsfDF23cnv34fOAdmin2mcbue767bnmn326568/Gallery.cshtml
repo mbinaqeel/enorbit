@@ -1,0 +1,107 @@
+﻿@model List<WebApplication2.Models.ComplaintList>
+@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(".read").click(function () {
+            var value = $(this).data("value")
+            var id = "#" + value;
+            
+
+
+
+            if ($.trim($(id).html()) == '') {
+                
+                $.ajax({
+                    url: "/dskfj3k4adsfDF23cnv34fOAdmin2mcbue767bnmn326568/jqgrid",
+                    data: "Id=" + value,
+                    method: "POST",
+                    success: function (data) {
+                        $(id).html(data);
+                        $(id + 'x').attr('class', 'label label-sm label-success');
+                        $(id + 'x').html("Read");
+                    },
+                    failure: function () {
+                        $(id).html("not found");
+                    }
+
+                });
+            }
+            else
+            {
+                $(id).toggle('slow');
+            }
+            
+            
+            
+        });
+    });
+</script>
+<div style="padding-left:3%">
+    <h1>Customer Complaints</h1>
+    <style>
+        .aheader {
+            background-color: #e1dede;
+            border: groove;
+            
+        }
+    </style>
+    <table border="1">
+        <thead>
+            <tr>
+                <td class="aheader"></td>
+                <td class="aheader"><b>Name</b></td>
+                <td class="aheader"><b>Email</b></td>
+                <td class="aheader"><b>Subject</b></td>
+                <td class="aheader"><b>Status</b></td>
+                <td class="aheader"><b>Date</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+
+                <tr>
+                    <td style="color:blue; font-size:larger">
+                        <h4 class="read" data-value="@x.Id">&nbsp;&nbsp;<b class="arrow fa fa-angle-down"></b>&nbsp;&nbsp;</h4>
+                    </td>
+                    <td>
+                        @x.name
+                    </td>
+                    <td>
+                        @x.email
+                    </td>
+                    <td>
+                        @x.subject
+                    </td>
+                    <td>
+                        @if (x.status == 1)
+                        {
+                            <span class="label label-sm label-success">Read</span>
+                        }
+                        else
+                        {
+                            string c = x.Id+"x";
+                            <span id="@c" class="label label-sm label-warning">Not Read</span>
+                        }
+
+                    </td>
+                    <td>
+                        @x.date
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" style="padding-left:2%;">
+                        <div id="@x.Id" ></div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+

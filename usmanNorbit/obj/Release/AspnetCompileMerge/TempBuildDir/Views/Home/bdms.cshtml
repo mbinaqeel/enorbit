@@ -1,0 +1,9 @@
+﻿
+@{
+    //ViewBag.Title = "bdms";
+    Layout = null;
+}
+@foreach (var x in ViewBag.CatList)
+{
+    <a href="/Home/Products?id=@x.Id">@x.name</a>
+}

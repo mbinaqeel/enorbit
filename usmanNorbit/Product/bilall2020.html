@@ -1,0 +1,92 @@
+<!DOCTYPE html><html><head><title>bilall</title>
+    <script src="/Scripts/js/jquery.min.js"></script>
+    <script src="/Scripts/jquery-1.12.4.js"></script>
+
+
+    <link href="/Scripts/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'/>
+      <!--//fonts-->
+      <script>
+        $(document).ready(function () {
+        $("#a123").click(function () {
+
+        if ($.trim($("#manu").html()) == '')
+        {
+
+        $.ajax({
+
+        url: "/Home/bdms",
+        method: "POST",
+        success: function (data) {
+
+        $("#manu").html(data);
+        $("#manu").slideToggle("slow");
+        },
+        failure: function () {
+        $("#manu").html("not found");
+        }
+
+        });
+        }
+        else{
+        $("#manu").slideToggle("slow");
+        }
+        })
+        });
+      </script>
+    </head>
+  <body>
+    <div class="header">
+      <!---->
+      <div class="header-left" style="position:fixed; height:inherit">
+        <div class="">
+          <a href="#">
+            <img src="/Scripts/images/NORBIT.jpg" alt="">
+          </a>
+        </div>
+        <div class="top-nav">
+          <ul>
+
+            <li class="">
+              <a href="/Home/Index" class="black">HOME</a>
+            </li>
+            <li class="active" id="a123">
+              <a href="#" class="black"> PRODUCTS</a>
+            </li>
+            <li id="manu" style="font-size: 12px; overflow-y: scroll; max-height: 350px; overflow-x: hidden; " hidden="hidden">
+
+            </li>
+            <li class="">
+              <a href="/Home/About" class="black1"> ABOUT</a>
+            </li>
+            <li class="">
+              <a href="/Home/Applications" class="black3"> APPLICATIONS</a>
+            </li>
+            <li class="">
+              <a href="/Home/Complaint" class="black4">CONTACT</a>
+            </li>
+
+          </ul>
+        </div>
+        <ul class="social-in">
+          <li><a href="https://www.facebook.com/norbituk/"><i class="facebook-social-button"></i></a></li>
+                <li><a href="mailto:norbituk@gmail.com"><i class="gmail"></i></a></li>
+                <li><a href="https://twitter.com/bitf13m006"><i class="twitter"></i></a></li>
+
+        </ul>
+        <br />
+        <br />
+        <p class="footer-class">
+          Developed by  <a href="mailto:bitf13m006@pucit.edu.pk" target="_blank">MBA</a>
+        </p>
+      </div>
+      <!---->
+      <!---->
+      
+      <div class="content">
+        <div class="about">
+          <div class="about-top" style="width:100%">
+dfd<br>d<br>d<br><br>d<br><img class="fr-dib fr-draggable" src="/Scripts/uploads/1476370565.3275.jpg" style="width: 300px;"><br><table style="width: 100%;"><tbody><tr><td style="width: 16.6667%;">1</td><td style="width: 16.6667%;">2</td><td style="width: 16.6667%;">3</td><td style="width: 16.6667%;">4</td><td style="width: 16.6667%;">5</td><td style="width: 16.6667%;">6</td></tr><tr><td><br></td><td><br></td><td><br></td><td><br></td><td><br></td><td><br></td></tr><tr><td><br><br></td><td><br></td><td><br></td><td><br></td><td><br></td><td><br></td></tr></tbody></table><br><br>End All</div><div class="clear"> </div></div><div class="clear"> </div></div><div class="clear"> </div></div></body></html>

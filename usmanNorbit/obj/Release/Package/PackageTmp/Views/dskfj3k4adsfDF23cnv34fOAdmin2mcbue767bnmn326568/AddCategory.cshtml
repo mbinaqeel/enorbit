@@ -1,0 +1,106 @@
+﻿@model usmanNorbit.Models.category
+@{
+    ViewBag.Title = "Add Product Catagory";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+//    Layout = null;
+}
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function () {
+       
+        $(".edit-item").click(function () {
+
+            var id = $(this).data("id");
+            var name = $(this).data("name");
+            
+            $(id + 'x').attr('class', 'label label-sm label-success');
+            $("#Id").attr('value', id);
+            $("#name").attr('value', name);
+
+
+        });
+
+        $(".remove-item").click(function () {
+
+            if (confirm("you sure wanna remove it?")) {
+                var valID = $(this).data("value");
+                
+                $.ajax({
+                    url: "/dskfj3k4adsfDF23cnv34fOAdmin2mcbue767bnmn326568/RemoveCategory",
+                    data: "id=" + valID,
+                    method: "POST",
+                    success: function (data) {
+                        //alert("item removed");
+                        
+                            
+                            window.location.reload()//; = "/Buyer/EmptyCart";
+                        
+                    },
+                    failure: function () {
+                        alert("dfdfdf");
+                    }
+                });
+                
+            }
+            
+        });
+    });
+</script>
+
+<div style="padding-left:10%">
+    <h2>Add a Product Category</h2>
+    @using (Html.BeginForm("AddpCategory", "dskfj3k4adsfDF23cnv34fOAdmin2mcbue767bnmn326568", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    
+            <br />
+    <div class="col-sm-8 col-md-7">
+        
+        <input type="hidden" value="0" name="catId" id="catId"/>
+        @Html.HiddenFor(m => m.Id, new { @value="0" })
+
+        @Html.TextBoxFor(m => m.name, new { @class = "form-control ui-autocomplete-input", @placeholder= Html.DisplayNameFor(n => n.name) })
+        @Html.ValidationMessageFor(m => m.name)
+
+        <br />
+        
+
+        <input type="submit" value="SAVE" class="btn btn-large btn-block" />
+    </div>
+}
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <table border="1">
+        <thead>
+            <tr><td style="width:10%;">#</td>
+                <td style="width:80%;" colspan="3">Categories</td>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @{int i = 1;}
+            @foreach (var x in ViewBag.Tit)
+            {
+                 
+                <tr>
+                    
+                    <td style="width:10%;">@i</td>
+                    <td style="width:80%;">@x.name</td>
+                    <td><input type=button value="Edit" class="edit-item" data-id="@x.Id" data-name="@x.name"></td>
+                    <td><input type=button class="remove-item" value="Delete" data-value="@x.Id"></td>
+                </tr>
+                i++;
+
+            }
+        </tbody>
+    </table>
+</div>

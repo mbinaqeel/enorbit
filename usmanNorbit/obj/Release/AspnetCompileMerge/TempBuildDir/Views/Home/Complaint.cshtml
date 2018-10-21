@@ -1,0 +1,79 @@
+﻿@model usmanNorbit.Models.custComplaint
+@{
+    ViewBag.Title = "Contact Us";
+ //   Layout = null;
+}
+
+
+
+
+
+<div class="contact" style="margin:5%">
+    <h1>Get in touch with us</h1>
+    <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p>
+    <div class="top-contact">
+        <h3>Send us a message</h3>
+        
+            @using (Html.BeginForm("SubmitComplaints", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="grid-contact">
+            <div class="your-top">
+                <i> </i>
+                @Html.TextBoxFor(m => m.name, new { @placeholder= Html.DisplayNameFor(n => n.name) })
+                <!--<input type="text" value="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Name';}">-->
+                <div class="clear"> </div>
+            </div>
+            <div class="your-top">
+                <i class="email"> </i>
+                @Html.TextBoxFor(m => m.email, new { @placeholder= Html.DisplayNameFor(n => n.email) })
+                
+                <div class="clear"> </div>
+            </div>
+            <div class="your-top">
+                <i class="website"> </i>
+                @Html.TextBoxFor(m => m.subject, new { @placeholder= Html.DisplayNameFor(n => n.subject) })
+                <div class="clear"> </div>
+            </div>
+                    </div>
+        
+            <div class="grid-contact-in">
+            @Html.TextAreaFor(m => m.message, new{@cols="77", @rows = "7", @placeholder = Html.DisplayNameFor(n=>n.message)})
+            
+            <input type="submit" value="SENT MESSAGE">
+            
+            </div>
+            }
+        
+    </div>
+</div>
+    
+    <!--
+    <div style="padding-left:10%">
+        <h2>Write your complaints</h2><br />
+       
+
+
+
+        <div class="col-sm-8 col-md-7">
+
+
+            Html.TextBoxFor(m => m.name, new { class = "form-control ui-autocomplete-input", placeholder= Html.DisplayNameFor(n => n.name) })
+            Html.ValidationMessageFor(m => m.name)
+
+            <br />
+
+            Html.TextBoxFor(m => m.email, new { class = "form-control ui-autocomplete-input", placeholder = Html.DisplayNameFor(n => n.email) })
+            Html.ValidationMessageFor(m => m.email)
+
+            <br />
+
+            Html.TextAreaFor(m => m.complaint, new { class = "form-control ui-autocomplete-input", placeholder = Html.DisplayNameFor(n => n.complaint) })
+            Html.ValidationMessageFor(m => m.complaint)
+
+
+
+            <input type="submit" value="OK" class="btn btn-danger btn-block" />
+        </div>
+    }
+    </div>
+        -->

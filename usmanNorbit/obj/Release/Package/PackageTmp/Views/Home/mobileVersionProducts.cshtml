@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "mobileVersionProducts";
+}
+<div class="about">
+    <div class="about-top" style="width:100%">
+
+    <ul >
+        
+        @foreach (var x in ViewBag.CatList)
+            {
+                <li><a href="/Home/Products?id=@x.Id">@x.name</a></li>
+            }
+        
+
+    </ul>
+
+
+    </div>
+
+    <div class="clear"> </div>
+</div>

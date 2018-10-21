@@ -1,0 +1,85 @@
+﻿ 
+@model List<usmanNorbit.Models.product>
+@{
+    ViewBag.Title = "Edit Product";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function () {
+        
+        $(".remove-item").click(function () {
+          
+            if (confirm("you sure wanna remove it?")) {
+                var valID = $(this).data("id");
+          
+                $.ajax({
+                    url: "/dskfj3k4adsfDF23cnv34fOAdmin2mcbue767bnmn326568/RemoveProduct",
+                    data: "id=" + valID,
+                    method: "POST",
+                    success: function (data) {
+                        
+
+                        window.location.reload();
+
+                    },
+                    failure: function () {
+                        alert("kuch gr br hai");
+                    }
+                });
+
+            }
+            else { }
+
+
+        });
+    });
+</script>
+
+<style>
+    .cell {
+        width: 33%;
+        height: inherit;
+        float: left;
+    }
+
+    .imgbox {
+        width: 80%;
+        height: 80%;
+        border: double;
+        margin: 2%;
+    }
+</style>
+
+<div style="padding-top:2%">
+
+    @foreach (var cat in ViewBag.CatList)
+{
+        <br />
+    <p>
+        <h1><b>@cat.name</b></h1>
+        @foreach (var pro in Model)
+        {
+            if (pro.catid == cat.Id)
+            {
+                <div class="cell">
+                    <div class="imgbox">
+                        <input class="remove-item" type="button" value="Delete" data-id="@pro.Id" />
+
+
+                        <a href="@pro.pagepath"><img src="@pro.imgpath" style="height:200px; width:230px;" /></a>
+                        <h4>@pro.name</h4>
+                        @pro.model
+                    </div>
+                </div>
+            }
+        }
+    </p>
+
+
+}
+
+
+
+</div>

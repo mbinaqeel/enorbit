@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><title>mn</title>
+    <script src="/Scripts/js/jquery.min.js"></script>
+    <script src="/Scripts/jquery-1.12.4.js"></script>
+
+
+    <link href="/Scripts/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'/>
+      <!--//fonts-->
+      <script>
+        $(document).ready(function () {
+        $("#a123").click(function () {
+
+        if ($.trim($("#manu").html()) == '')
+        {
+
+        $.ajax({
+
+        url: "/Home/bdms",
+        method: "POST",
+        success: function (data) {
+
+        $("#manu").html(data);
+        $("#manu").slideToggle("slow");
+        },
+        failure: function () {
+        $("#manu").html("not found");
+        }
+
+        });
+        }
+        else{
+        $("#manu").slideToggle("slow");
+        }
+        })
+        });
+      </script>
+    </head>
+  <body>
+    <div class="header">
+      <!---->
+      <div class="header-left">
+        <div class="">
+          <a href="#">
+            <img src="/Scripts/images/NORBIT.jpg" alt="">
+          </a>
+        </div>
+        <div class="top-nav">
+          <ul>
+
+            <li class="">
+              <a href="/Home/Index" class="black">HOME</a>
+            </li>
+            <li class="active" id="a123">
+              <a href="#" class="black"> PRODUCTS</a>
+            </li>
+            <li id="manu" style="font-size:12px;" hidden="hidden">
+
+            </li>
+            <li class="">
+              <a href="/Home/About" class="black1"> ABOUT</a>
+            </li>
+            <li class="">
+              <a href="/Home/Applications" class="black3"> APPLICATIONS</a>
+            </li>
+            <li class="">
+              <a href="/Home/Complaint" class="black4">CONTACT</a>
+            </li>
+
+          </ul>
+        </div>
+        <ul class="social-in">
+          <li><a href="https://www.facebook.com/norbituk/"><i class="facebook-social-button"></i></a></li>
+                <li><a href="mailto:norbituk@gmail.com"><i class="gmail"></i></a></li>
+                <li><a href="https://twitter.com/bitf13m006"><i class="twitter"></i></a></li>
+
+        </ul>
+        <br />
+        <br />
+        <p class="footer-class">
+          Developed by  <a href="mailto:bitf13m006@pucit.edu.pk" target="_blank">MBA</a>
+        </p>
+      </div>
+      <!---->
+      <!---->
+      <div class="header-top">
+        <div class="logo-in">
+          <a href="#">
+            <img src="/Scripts/images/NORBIT.jpg" alt="">
+          </a>
+        </div>
+        <div class="top-nav-in">
+          <span class="menu">
+            <img src="/Scripts/images/menu.png" />
+          </span>
+          <ul>
+            <li class="">
+              <a href="/Home/Index" class="black">HOME</a>
+            </li>
+            <li>
+              <a href="/Home/mobileVersionProducts" class="black"> PRODUCTS</a>
+            </li>
+            
+            <li class="">
+              <a href="/Home/About" class="black1"> ABOUT</a>
+            </li>
+            <li class="">
+              <a href="/Home/Applications" class="black3"> APPLICATIONS</a>
+            </li>
+            <li class="">
+              <a href="/Home/Complaint" class="black4">CONTACT</a>
+            </li>
+
+          </ul>
+          <script>
+            $("span.menu").click(function () {
+            $(".top-nav-in ul").slideToggle(500, function () {
+            });
+            });
+          </script>
+
+        </div>
+        <div class="clear"> </div>
+      </div>
+      <div class="content">
+        <div class="about">
+          <div class="about-top" style="width:100%">
+<h2>Hellow</h2></div><div class="clear"> </div></div><div class="clear"> </div></div><div class="clear"> </div><p class="footer-class-in">Copyright © 2017 by  <a href="mailto:bitf13m006@pucit.edu.pk" target="_blank">MBA</a> </p></div></body></html>
